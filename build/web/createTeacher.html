@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.js" integrity="sha512-CABi9vrtlQz9otMo5nT0B3nCBmn5BirYvO3oCnulsEzRDekxdMEZ2rXg85Is5pdnc9HNAcUEjm/7HagpqAFa1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Shantell+Sans:ital,wght@0,300;0,400;0,500;1,500&display=swap" rel="stylesheet">
+
+<script>
+    tailwind.config = {
+      darkMode: 'class',  
+      theme: {
+         fontFamily: {
+          'sans': ['ui-sans-serif', 'system-ui'],
+          'serif': ['ui-serif', 'Georgia'],
+          'mono': ['ui-monospace', 'SFMono-Regular'],
+          'raleway': ['raleway'],
+          'body': ['"Open Sans"'],
+        }
+      }
+    }
+  </script>
+
+</head>
+    <body class="font-raleway p-8 " >
+        
+      <h1 class="text-7xl" > Add New Teacher </h1>
+        <form  action="createTeacher" method="post">
+            <div class="mb-6 font-raleway mt-8">
+              <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teacher name</label>
+              <input type="name" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required>
+            </div>
+            <button type="submit" class="mt-8 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Teacher</button>
+        </form>
+
+
+
+        <div class="mt-12 relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+                  <tr>
+                      <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                          Teacher id
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Teacher name
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                          1
+                      </th>
+                      <td class="px-6 py-4">
+                          Chanda Mach
+                      </td>
+                  </tr>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        2
+                      </th>
+                      <td class="px-6 py-4">
+                        jhal vorta
+                      </td>
+                      
+                  </tr>
+                  
+              </tbody>
+          </table>
+      </div>
+      
+
+    </body>
+</html>

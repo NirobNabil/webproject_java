@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"
-    import="model.Course, model.Teacher, java.util.ArrayList"
+    import="model.Course, model.Student, java.util.ArrayList"
 %>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,7 @@
         <jsp:include page="header.jsp" />
     </head>
     <body class="font-raleway p-8 " >
-        
+
         <jsp:include page="sidebar.jsp" />
 
         <div class="sm:ml-64 pl-4 pt-4" >
@@ -23,7 +23,7 @@
             <jsp:include page="status.jsp" />
             
             <h1 class="text-7xl">
-                Assign Teacher
+                Enroll
             </h1>
 
             <form action="assignCourse" method="post" class=" mt-8">
@@ -35,20 +35,7 @@
 
                         for (int i = 0; i < courses_t.size(); i++) {
                             out.println("<option value=\"" + courses_t.get(i).getId() + "\">" + courses_t.get(i).getName() + "</option>" );
-                        }   
-
-                    %>
-                </select>
-
-                <label for="teacherid" class="mt-8 block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a teacher</label>
-                <select name="teacherid" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <%
-                        ArrayList<Teacher> teachers_t = (ArrayList<Teacher>) request.getAttribute("teachers");
-
-                        for (int i = 0; i < teachers_t.size(); i++) {
-                            out.println("<option value=\"" + teachers_t.get(i).getId() + "\">" + teachers_t.get(i).getName() + "</option>" );
                         }
-
                     %>
                 </select>
 
@@ -58,35 +45,40 @@
 
             <div class="mt-12 relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    
                     <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
-                                Course id
+                                student id
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Course name
+                                student name
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Assigned To
+                                Enrolled in
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <%
-                            ArrayList<Course> courses_tt = (ArrayList<Course>) request.getAttribute("courses_with_assignment");                            
+                            ArrayList<Student> students = (ArrayList<Student>) request.getAttribute("students_with_enrollments");                            
                         %>
                         
-                        <%  for (int i = 0; i < courses_tt.size(); i++) { %>
+                        <%  for (int i = 0; i < students.size(); i++) { %>
 
                             <tr class="border-b border-gray-200 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                                    <%= courses_tt.get(i).getId() %>
+                                    <%= students.get(i).getId() %>
                                 </th>
                                 <td class="px-6 py-4">
-                                    <%= courses_tt.get(i).getName() %>
+                                    <%= students.get(i).getName() %>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <%= courses_tt.get(i).getAssignedTo().getName() %>
+                                    <%  ArrayList<Course> courses = students.get(i).getEnrolledCourses();
+                                        for (int ix = 0; ix < courses.size(); ix++) {
+                                    %>
+                                        <li> <%= courses.get(ix).getName() %> </li>
+                                    <% } %>
                                 </td>
                             </tr>
                         
