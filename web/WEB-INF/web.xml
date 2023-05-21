@@ -9,6 +9,22 @@
         <servlet-name>EnrollCourse</servlet-name>
         <servlet-class>EnrollCourse</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MyCourses</servlet-name>
+        <servlet-class>MyCourses</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MyCoursesAsStudent</servlet-name>
+        <servlet-class>MyCoursesAsStudent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyCoursesAsStudent</servlet-name>
+        <url-pattern>/MyCoursesAsStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyCourses</servlet-name>
+        <url-pattern>/MyCourses</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CreateCourse</servlet-name>
         <url-pattern>/CreateCourse</url-pattern>

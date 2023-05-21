@@ -7,14 +7,19 @@ import jakarta.servlet.http.*;
 import java.util.ArrayList;
 import model.Course;
 import model.Teacher;
+import model.Student;
+
 import dto.CourseDto;
 import dto.TeacherDto;
+import dto.StudentDto;
 import dto.CourseAssignment;
+import dto.CourseEnrollment;
+import dto.CookieDto;
 
 
 
 
-public class AssignCourse extends HttpServlet {
+public class MyCourses extends HttpServlet {
     
     protected void sendDefaultPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -26,55 +31,42 @@ public class AssignCourse extends HttpServlet {
             System.out.println("Couldn't get courses");
         }
 
-        ArrayList<Teacher> teachers = new ArrayList<>();
-        try {
-            teachers = TeacherDto.getTeachers();
-        } catch (Exception ex) {
-            System.out.println("Couldn't get teachers");
-        }
+//        ArrayList<Student> students = new ArrayList<>();
+//        try {
+//            students = StudentDto.getStudents();
+//        } catch (Exception ex) {
+//            System.out.println("Couldn't get teachers");
+//        }
 
-        ArrayList<Course> courses_with_assignment = new ArrayList<>();
+        ArrayList<Course> courses_with_assignments = new ArrayList<>();
+        ArrayList<Course> courses_with_enrollments = new ArrayList<>();
+        String userid = CookieDto.getCookie(request, "userid");
+
         try{
-            courses_with_assignment = CourseAssignment.getCourseAssignments();
+            courses_with_assignments = CourseAssignment.getTeacherCourseAssignments(userid);
         } catch( Exception e ) {
-            System.out.println("Some bad exception when getting course assignments");
+            System.out.println("Some bad exception when getting course assignments: " + e.getMessage());
         }
-
-        request.setAttribute("courses_with_assignment", courses_with_assignment);
+        
+        try {
+            Teacher teacher = TeacherDto.getTeacherById(userid);
+            courses_with_enrollments = CourseEnrollment.getCoursesWithStudentEnrollments(teacher);
+        } catch( Exception e ) {
+            System.out.println("some bad exception when getting course with enrollments " + e.getMessage());
+        }
+        
+        
+        request.setAttribute("courses_with_enrollments", courses_with_enrollments);
+        request.setAttribute("courses_with_assignments", courses_with_assignments);
         request.setAttribute("courses", courses);
-        request.setAttribute("teachers", teachers);
+//        request.setAttribute("teachers", teachers);
 
-        request.getRequestDispatcher("assignCourse.jsp").forward(request, response);
+        request.getRequestDispatcher("myCourses.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         sendDefaultPage(request, response);
     }
 
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-            
-            String courseid = request.getParameter("courseid");
-            String teacherid = request.getParameter("teacherid");
-            
-            
-            try {
-                Course course = CourseDto.getCourseById(courseid);
-                Teacher teacher = TeacherDto.getTeacherById(teacherid);
-  
-                CourseAssignment.setAssignment(course, teacher);
-                
-                request.setAttribute("status", "successfully assigned " + teacher.getName() + " to " + course.getName());
-                request.setAttribute("statusType", "success");
-            } catch( Exception e ) {
-                request.setAttribute("status", "An error happened while assigning");
-                request.setAttribute("statusType", "error");
-            }
-            
-//            PrintWriter out = response.getWriter();
-//            out.println("got it mam " + courseid + " " + teacherid );
-            
-            sendDefaultPage(request, response);
-        }
     
 }

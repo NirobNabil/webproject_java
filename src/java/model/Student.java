@@ -7,32 +7,28 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import model.Course;
 
-public class Student implements Serializable {
+public class Student extends User {
 	
-	String name;
-        String id = null;
         ArrayList<Course> enrolledIn = new ArrayList<>();
 	
 	public Student() {
 	  
 	}   
 	
-        public Student(String name) {
-            this.name = name; 
+        public Student(String id) {
+            this.id = id;
 	}
         
 	public Student(String id, String name) {
             this.id = id;
-            this.name = name; 
-	}
-	
-        public String getId() {
-            return this.id;
+            this.lastName = name; 
 	}
         
-        public String getName() {
-            return this.name;
-	}
+        public Student(String id, String firstName, String lastName) {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
         
         public void enrollIn( Course course ) {
             enrolledIn.add(course);
@@ -41,10 +37,6 @@ public class Student implements Serializable {
         public ArrayList<Course> getEnrolledCourses( ) {
             return enrolledIn;
         }
-        
-	public void setName(String name) {
-		this.name = name;
-	}
 	
 }
 

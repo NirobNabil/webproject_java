@@ -13,14 +13,18 @@ public class Registration extends HttpServlet{
 		throws ServletException, IOException {
             try {
                 response.setContentType("text/html;charset=UTF-8");
-                String firstName = request.getParameter("firstname");
-                String lastName = request.getParameter("lastname");
+                String firstName = request.getParameter("firstName");
+                String lastName = request.getParameter("lastName");
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
-                System.out.println(firstName + " " + lastName + " " + email + " " + password);
-                UserDto userDto = new UserDto();
-                User user = new User(firstName,lastName,email,password);
-                boolean isCreated = userDto.createUser(user);
+                String role = request.getParameter("role");
+                String username = request.getParameter("username");
+
+
+                System.out.println(firstName + " " + lastName + " " + email + " " + password + " " + role);
+                
+                User user = new User(firstName,lastName,email,password,role,username);
+                boolean isCreated = UserDto.createUser(user);
                 System.out.println(isCreated);
                 request.getRequestDispatcher("/registrationSuccess.jsp").forward(request, response);
             } catch (Exception ex) {

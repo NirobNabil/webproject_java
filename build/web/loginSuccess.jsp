@@ -6,20 +6,23 @@
 <meta charset="UTF-8">
 <title>Login Success</title>
 <style>
-        	h3{
+        	h3, span{
         	    display : flex;
         	    flex-direction : column ;
         	    align-items : center ;
-        } 
+                } 
         </style>
 </head>
 <body>
-    <h1>User Info</h1>
+    <% String username = (String)request.getAttribute("username"); %>
+    <h3>Successfully logged in as <%= username %> </h3>
+    <span>You will be redirected to home page in 2 seconds </span>
+    <script>
+        setTimeout( () => {
+            window.location.replace("home.jsp")
+        }, 2000);
+    </script>
     
-  <p>First Name: ${user.getFirstName()}</p>
-  <p>Last Name: ${user.getLastName()}</p>
-  <p>Email: ${user.getEmail()}</p>
-  <p>Id: ${user.getId()}</p>
 </body>
 
 </html>

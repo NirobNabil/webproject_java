@@ -101,7 +101,7 @@ public class CourseDto {
             }
             
         } catch (SQLException ex) {
-            throw new Exception("Failed to create user: " + ex.getMessage());
+            throw new Exception("Failed to fetch course: " + ex.getMessage());
         } finally {
             // close resources
             if (ps != null) {

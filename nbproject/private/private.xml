@@ -4,18 +4,47 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/WEB-INF/web.xml</file>
-            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/index.jsp</file>
             <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/createCourse.jsp</file>
-            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/UserDto.java</file>
-            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/registrationSuccess.jsp</file>
-            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/CreateCourse.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/MyCoursesAsStudent.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/CookieDto.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/sidebar.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/MyCourses.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/model/Student.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/CreateTeacher.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/enrollCourse.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/EnrollCourse.java</file>
             <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/model/Course.java</file>
-            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/dbConn.java</file>
             <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/Registration.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/particlesjs-config.json</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/register_1.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/CourseDto.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/header.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/myCourses.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/css/input.css</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/model/Teacher.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/StudentDto.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/createTeachers.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/index.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/tailwind.config.js</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/CourseAssignment.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/UserDto.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/CourseEnrollment.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/AssignCourse.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/home.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/registrationSuccess.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/loginFailed.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/CreateCourse.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/dbConn.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/status.jsp</file>
             <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/model/User.java</file>
             <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/register.jsp</file>
-            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/CourseDto.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/waves.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/myCoursesAsStudent.jsp</file>
             <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/Login.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/css/output.css</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/src/java/dto/TeacherDto.java</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/assignCourse.jsp</file>
+            <file>file:/home/twin_n/workspace/assignments/Web/WebApplication1%20(copy)/web/loginSuccess.jsp</file>
         </group>
     </open-files>
 </project-private>

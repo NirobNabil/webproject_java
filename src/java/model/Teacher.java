@@ -8,26 +8,23 @@ package model;
  *
  * @author twin_n
  */
-public class Teacher {
-    String name;
-    String id;
+public class Teacher extends User {
     
     public Teacher(){}
     
-    public Teacher(String name){
-        this.name = name;
+    public Teacher(String id) {
+        this.id = id;
     }
     
-    public Teacher(String id, String name) {
+    public Teacher(String id, String username) {
         this.id = id;
-        this.name = name; 
+        this.username = username; 
     }
-	
-    public String getId() {
-        return this.id;
+    
+    public Teacher(String id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public String getName() {
-        return this.name;
-    }
 }

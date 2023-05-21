@@ -13,12 +13,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Create Teacher</title>
         <jsp:include page="header.jsp" />
+        
     </head>
-    <body class="font-raleway p-8 " >
+    <body class="font-raleway p-8" >
+        
+        <%--<jsp:include page="waves.jsp" />--%>
+
         
         <jsp:include page="sidebar.jsp" />
         
+        
         <div class="ml-64 pl-4 pt-4" >
+            
             
             <jsp:include page="status.jsp" />
         

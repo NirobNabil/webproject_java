@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"
-    import="model.Course, model.Student, java.util.ArrayList"
+    import="model.Course, model.Student, java.util.ArrayList, dto.CookieDto"
 %>
 <!DOCTYPE html>
 <html>
@@ -25,8 +25,10 @@
             <h1 class="text-7xl">
                 Enroll
             </h1>
+            
+            <% String userid = CookieDto.getCookie(request, "userid"); %>
 
-            <form action="assignCourse" method="post" class=" mt-8">
+            <form action="EnrollCourse" method="post" class=" mt-8">
 
                 <label for="courseid" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a course</label>
                 <select name="courseid" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -38,8 +40,9 @@
                         }
                     %>
                 </select>
+                <input name="studentid" value="<%= userid %>" class="hidden" />
 
-                <button type="submit" class="mt-8 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Assign Teacher</button>
+                <button type="submit" class="mt-8 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enroll in course</button>
 
             </form>
 
@@ -49,36 +52,27 @@
                     <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
-                                student id
+                                course id
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                student name
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Enrolled in
+                                course name
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <%
-                            ArrayList<Student> students = (ArrayList<Student>) request.getAttribute("students_with_enrollments");                            
+                            Student student = (Student) request.getAttribute("student_with_enrollments");   
+                            ArrayList<Course> courses = student.getEnrolledCourses();
                         %>
                         
-                        <%  for (int i = 0; i < students.size(); i++) { %>
+                        <%  for (int i = 0; i < student.getEnrolledCourses().size(); i++) { %>
 
                             <tr class="border-b border-gray-200 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                                    <%= students.get(i).getId() %>
+                                    <%= courses.get(i).getId() %>
                                 </th>
                                 <td class="px-6 py-4">
-                                    <%= students.get(i).getName() %>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <%  ArrayList<Course> courses = students.get(i).getEnrolledCourses();
-                                        for (int ix = 0; ix < courses.size(); ix++) {
-                                    %>
-                                        <li> <%= courses.get(ix).getName() %> </li>
-                                    <% } %>
+                                    <%= courses.get(i).getName() %>
                                 </td>
                             </tr>
                         

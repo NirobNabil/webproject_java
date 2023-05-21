@@ -50,7 +50,7 @@ public class TeacherDto {
             // creating connection with the database
 
             //Create a SQL INSERT statement
-            String queryString = "Select * from teacher";
+            String queryString = "Select userid, firstName, lastName from user where role = \"teacher\"";
             Statement s = conn.createStatement();
             
             
@@ -59,12 +59,14 @@ public class TeacherDto {
             
             while(result.next()){
                 String id = result.getString(1);
-                String name = result.getString(2);
-                teachers.add(new Teacher(id, name));
+                String firstName = result.getString(2);
+                String lastName = result.getString(3);
+                
+                teachers.add(new Teacher(id, firstName, lastName ));
             }
             
         } catch (SQLException ex) {
-            throw new Exception("Failed to create user: " + ex.getMessage());
+            throw new Exception("Failed to fetch teacher: " + ex.getMessage());
         } finally {
             // close resources
             if (ps != null) {
@@ -88,7 +90,7 @@ public class TeacherDto {
             // creating connection with the database
 
             //Create a SQL INSERT statement
-            PreparedStatement statement = conn.prepareStatement("SELECT * from teacher WHERE teacherid = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT userid, firstName, lastName from user WHERE role = \"teacher\" and userid = ?");
             statement.setString(1, teacherid);
             
             
@@ -97,12 +99,14 @@ public class TeacherDto {
             
             while(result.next()){
                 String id = result.getString(1);
-                String name = result.getString(2);
-                teacher = new Teacher(id, name);
+                String firstName = result.getString(2);
+                String lastName = result.getString(3);
+                
+                teacher = new Teacher(id, firstName, lastName );
             }
             
         } catch (SQLException ex) {
-            throw new Exception("Failed to create user: " + ex.getMessage());
+            throw new Exception("Failed to fetch teacher: " + ex.getMessage());
         } finally {
             // close resources
             if (ps != null) {

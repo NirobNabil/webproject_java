@@ -18,7 +18,7 @@ import dto.CourseEnrollment;
 
 
 
-public class EnrollCourse extends HttpServlet {
+public class MyCoursesAsStudent extends HttpServlet {
     
     protected void sendDefaultPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -51,7 +51,7 @@ public class EnrollCourse extends HttpServlet {
         request.setAttribute("courses", courses);
 //        request.setAttribute("teachers", teachers);
 
-        request.getRequestDispatcher("enrollCourse.jsp").forward(request, response);
+        request.getRequestDispatcher("myCoursesAsStudent.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,30 +59,29 @@ public class EnrollCourse extends HttpServlet {
     }
 
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-            
-            String courseid = request.getParameter("courseid");
-            String studentid = request.getParameter("studentid");
-            
-            
-            try {
-                Course course = CourseDto.getCourseById(courseid);
-                Student student = StudentDto.getStudentById(studentid);
-  
-                CourseEnrollment.setEnrollment(course, student);
-                
-                request.setAttribute("status", "successfully assigned " + student.getName() + " to " + course.getName());
-                request.setAttribute("statusType", "success");
-            } catch( Exception e ) {
-                System.out.println(e.getMessage());
-                request.setAttribute("status", "An error happened while enrolling");
-                request.setAttribute("statusType", "error");
-            }
-            
-//            PrintWriter out = response.getWriter();
-//            out.println("got it mam " + courseid + " " + teacherid );
-            
-            sendDefaultPage(request, response);
-        }
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
+//            
+//            String courseid = request.getParameter("courseid");
+//            String teacherid = request.getParameter("teacherid");
+//            
+//            
+//            try {
+//                Course course = CourseDto.getCourseById(courseid);
+//                Teacher teacher = TeacherDto.getTeacherById(teacherid);
+//  
+//                CourseAssignment.setAssignment(course, teacher);
+//                
+//                request.setAttribute("status", "successfully assigned " + teacher.getName() + " to " + course.getName());
+//                request.setAttribute("statusType", "success");
+//            } catch( Exception e ) {
+//                request.setAttribute("status", "An error happened while assigning");
+//                request.setAttribute("statusType", "error");
+//            }
+//            
+////            PrintWriter out = response.getWriter();
+////            out.println("got it mam " + courseid + " " + teacherid );
+//            
+//            sendDefaultPage(request, response);
+//        }
     
 }

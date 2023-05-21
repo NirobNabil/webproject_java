@@ -79,5 +79,46 @@ public class CourseAssignment {
 
         return courses;
     }
+    
+    
+    public static ArrayList<Course> getTeacherCourseAssignments(String teacherid) throws Exception {
+        var conn = dbConn.getConn();
+        PreparedStatement ps = null;
+
+        ArrayList<Course> courses = new ArrayList<>();
+        ResultSet result;
+        Teacher teacher = TeacherDto.getTeacherById(teacherid);
+        
+        try {
+            // loading drivers for mysql
+            // creating connection with the database
+
+            //Create a SQL INSERT statement
+            String queryString = "Select courseid from assigned where teacherid = ?";
+            ps = conn.prepareStatement(queryString);
+            ps.setString(1, teacherid);
+            
+            
+            // execute the statement
+            result = ps.executeQuery();
+            
+            while(result.next()){
+                String course_id = result.getString(1);
+                Course c = CourseDto.getCourseById(course_id);
+                c.assignTo(teacher);
+                courses.add(c);
+            }
+            
+        } catch (SQLException ex) {
+            throw new Exception("Failed to fetch course assignments: " + ex.getMessage());
+        } finally {
+            // close resources
+            if (ps != null) {
+                ps.close();
+            }
+        }
+
+        return courses;
+    }
 
 }

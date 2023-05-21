@@ -35,20 +35,20 @@ public class CreateTeacher extends HttpServlet {
             request.getRequestDispatcher("createTeachers.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response ) throws IOException {
-
-        String name = request.getParameter("name");
-
-        Teacher teacher = new Teacher(name);
-
-        try {
-            TeacherDto.createTeacher(teacher);
-        } catch( Exception e ) {
-            System.out.println("sql didnt work man. bummer");
-        }
-
-        PrintWriter out = response.getWriter();
-        out.println("got it mam " + name );
-    }
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response ) throws IOException {
+//
+//        String name = request.getParameter("name");
+//
+//        Teacher teacher = new Teacher(name);
+//
+//        try {
+//            TeacherDto.createTeacher(teacher);
+//        } catch( Exception e ) {
+//            System.out.println("sql didnt work man. bummer");
+//        }
+//
+//        PrintWriter out = response.getWriter();
+//        out.println("got it mam " + name );
+//    }
 
 }
